@@ -23,7 +23,7 @@ const portfolioData = {
     {
       degree: "Bachelor's in Cybersecurity & Digital Forensics",
       institution: "Al-Nasser University",
-      period: "2021 - 2025",
+      period: "2022 - 2026",
       status: "Final Year Student",
       description: "Specializing in cybersecurity principles, digital forensics, network security, and ethical hacking methodologies."
     },
@@ -138,7 +138,7 @@ const portfolioData = {
     email: "Nooraddin71@gmail.com",
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
     github: "https://github.com/nooraddinismail",
-    location: "Libya"
+    location: "Yemen"
   },
 
   stats: {
