@@ -12,20 +12,24 @@
             theme: {
                 extend: {
                     colors: {
-                        'cyber-dark': '#0f172a',
-                        'cyber-slate': '#1e293b',
-                        'cyber-zinc': '#27272a',
-                        'cyber-emerald': '#10b981',
-                        'cyber-blue': '#3b82f6'
+                        'cyber-dark': '#0a0a0f',
+                        'cyber-slate': '#1a1a2e',
+                        'cyber-card': '#16213e',
+                        'cyber-accent': '#533483',
+                        'cyber-purple': '#7c3aed',
+                        'cyber-blue': '#2563eb',
+                        'cyber-cyan': '#06b6d4',
+                        'cyber-pink': '#ec4899'
                     },
                     animation: {
                         'glow': 'glow 2s ease-in-out infinite alternate',
-                        'float': 'float 6s ease-in-out infinite'
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite'
                     },
                     keyframes: {
                         glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(16, 185, 129, 0.6)' }
+                            '0%': { boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(124, 58, 237, 0.6)' }
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
@@ -38,29 +42,48 @@
     </script>
     <style>
         .cyber-grid {
+            background:
+                radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
             background-image:
-                linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
+                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
         }
 
         .skill-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
         }
 
         .project-card:hover {
             transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
         }
 
         .nav-link:hover {
-            color: #10b981;
+            color: #7c3aed;
         }
 
         .terminal-text::before {
             content: 'nooraddin@cybersec:~$ ';
-            color: #10b981;
+            color: #7c3aed;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(22, 33, 62, 0.8);
+            border: 1px solid rgba(124, 58, 237, 0.2);
         }
     </style>
 </head>
@@ -70,17 +93,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-2">
-                    <i class="fas fa-shield-alt text-cyber-emerald text-xl"></i>
-                    <span class="text-xl font-bold text-cyber-emerald">Nooraddin</span>
+                    <i class="fas fa-shield-alt text-cyber-purple text-xl"></i>
+                    <span class="text-xl font-bold text-cyber-purple">Nooraddin</span>
                 </div>
 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">Home</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">About</a>
-                    <a href="#skills" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">Projects</a>
-                    <a href="#experience" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">Experience</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyber-emerald transition-colors">Contact</a>
+                    <a href="#home" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">About</a>
+                    <a href="#photos" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Photos</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Experience</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Contact</a>
                 </div>
 
                 <div class="md:hidden">
@@ -94,12 +118,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-cyber-slate border-t border-cyber-zinc">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">Home</a>
-                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">About</a>
-                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">Skills</a>
-                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">Projects</a>
-                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">Experience</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-cyber-emerald">Contact</a>
+                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">About</a>
+                <a href="#photos" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Photos</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Experience</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Contact</a>
             </div>
         </div>
     </nav>
@@ -110,14 +135,14 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="space-y-8">
                     <div class="space-y-4">
-                        <div class="inline-flex items-center space-x-2 bg-cyber-emerald/10 border border-cyber-emerald/20 rounded-full px-4 py-2">
-                            <i class="fas fa-terminal text-cyber-emerald"></i>
-                            <span class="text-cyber-emerald text-sm font-medium">Cybersecurity Student</span>
+                        <div class="inline-flex items-center space-x-2 bg-cyber-purple/10 border border-cyber-purple/20 rounded-full px-4 py-2">
+                            <i class="fas fa-terminal text-cyber-purple"></i>
+                            <span class="text-cyber-purple text-sm font-medium">Cybersecurity Student</span>
                         </div>
 
                         <h1 class="text-4xl lg:text-6xl font-bold">
                             <span class="text-white">Hello, I'm</span><br>
-                            <span class="text-cyber-emerald" id="hero-name">Nooraddin Ismail</span>
+                            <span class="text-cyber-purple" id="hero-name">Nooraddin Ismail</span>
                         </h1>
 
                         <p class="text-xl text-gray-300" id="hero-headline">Final Year Cybersecurity & Digital Forensics Student at Al-Nasser University</p>
@@ -128,24 +153,24 @@
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="bg-cyber-emerald hover:bg-cyber-emerald/80 text-black font-semibold px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
+                        <a href="#contact" class="bg-cyber-purple hover:bg-cyber-purple/80 text-white font-semibold px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
                             <i class="fas fa-envelope"></i>
                             <span>Contact Me</span>
                         </a>
-                        <a href="My cv.pdf" target="_blank" class="border border-cyber-zinc hover:border-cyber-emerald text-gray-300 hover:text-cyber-emerald px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
+                        <a href="My cv.pdf" target="_blank" class="border border-cyber-zinc hover:border-cyber-purple text-gray-300 hover:text-cyber-purple px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
                             <i class="fas fa-download"></i>
                             <span>Download CV</span>
                         </a>
                     </div>
 
                     <div class="flex space-x-6 pt-8">
-                        <a href="#" class="text-gray-400 hover:text-cyber-emerald transition-colors">
+                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-cyber-emerald transition-colors">
+                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
                             <i class="fab fa-linkedin text-2xl"></i>
                         </a>
-                        <a href="#" class="text-gray-400 hover:text-cyber-emerald transition-colors">
+                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
                             <i class="fab fa-twitter text-2xl"></i>
                         </a>
                     </div>
@@ -155,7 +180,7 @@
                     <div class="relative z-10">
                         <img id="profile-image" src="https://via.placeholder.com/400x400/1e293b/10b981?text=NI" alt="Nooraddin Ismail"
                              class="w-80 h-80 mx-auto rounded-full border-4 border-cyber-emerald/20 shadow-2xl animate-float">
-                        <div class="absolute inset-0 rounded-full bg-cyber-emerald/10 animate-pulse"></div>
+                        <div class="absolute inset-0 rounded-full bg-cyber-purple/10 animate-pulse"></div>
                     </div>
 
                     <!-- Decorative elements -->
@@ -171,7 +196,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">About Me</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -185,21 +210,99 @@
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-cyber-dark p-4 rounded-lg border border-cyber-zinc text-center">
-                            <div class="text-2xl font-bold text-cyber-emerald" id="stats-experience">3+</div>
+                            <div class="text-2xl font-bold text-cyber-purple" id="stats-experience">3+</div>
                             <div class="text-gray-400">Years Learning</div>
                         </div>
                         <div class="bg-cyber-dark p-4 rounded-lg border border-cyber-zinc text-center">
-                            <div class="text-2xl font-bold text-cyber-emerald" id="stats-projects">10+</div>
+                            <div class="text-2xl font-bold text-cyber-purple" id="stats-projects">10+</div>
                             <div class="text-gray-400">Projects</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="space-y-6">
-                    <h3 class="text-xl font-semibold text-cyber-emerald mb-4">Key Highlights</h3>
+                    <h3 class="text-xl font-semibold text-cyber-purple mb-4">Key Highlights</h3>
                     <div id="highlights-list" class="space-y-3">
                         <!-- Highlights will be populated by JavaScript -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section id="photos" class="py-20 bg-cyber-slate">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">My Gallery</h2>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Photo 1 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/533483/ffffff?text=Photo+1" alt="Cybersecurity Project"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Network Security Lab</h3>
+                    <p class="text-gray-300 text-sm">Setting up secure network configurations and testing penetration scenarios.</p>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Photo+2" alt="Digital Forensics"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Digital Forensics Analysis</h3>
+                    <p class="text-gray-300 text-sm">Analyzing cyber attack patterns and collecting digital evidence.</p>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/06b6d4/ffffff?text=Photo+3" alt="Cryptography Work"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Cryptography Research</h3>
+                    <p class="text-gray-300 text-sm">Developing secure encryption algorithms and cryptographic solutions.</p>
+                </div>
+
+                <!-- Photo 4 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/ec4899/ffffff?text=Photo+4" alt="Ethical Hacking"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Ethical Hacking Session</h3>
+                    <p class="text-gray-300 text-sm">Conducting authorized penetration testing and vulnerability assessments.</p>
+                </div>
+
+                <!-- Photo 5 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/2563eb/ffffff?text=Photo+5" alt="University Lab"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">University Cybersecurity Lab</h3>
+                    <p class="text-gray-300 text-sm">Working in advanced security labs at Al-Nasser University.</p>
+                </div>
+
+                <!-- Photo 6 -->
+                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
+                    <div class="relative overflow-hidden rounded-lg mb-4">
+                        <img src="https://via.placeholder.com/400x300/7c3aed/ec4899?text=Photo+6" alt="Team Collaboration"
+                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Team Collaboration</h3>
+                    <p class="text-gray-300 text-sm">Working with fellow cybersecurity students on complex projects.</p>
                 </div>
             </div>
         </div>
@@ -210,14 +313,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Skills & Expertise</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Security Skills -->
                 <div class="skill-card bg-cyber-slate p-6 rounded-lg border border-cyber-zinc transition-all duration-300">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-shield-alt text-cyber-emerald text-2xl"></i>
+                        <i class="fas fa-shield-alt text-cyber-purple text-2xl"></i>
                         <h3 class="text-xl font-semibold text-white">Security</h3>
                     </div>
                     <div id="security-skills" class="flex flex-wrap gap-2">
@@ -228,7 +331,7 @@
                 <!-- Development Skills -->
                 <div class="skill-card bg-cyber-slate p-6 rounded-lg border border-cyber-zinc transition-all duration-300">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-code text-cyber-emerald text-2xl"></i>
+                        <i class="fas fa-code text-cyber-purple text-2xl"></i>
                         <h3 class="text-xl font-semibold text-white">Development</h3>
                     </div>
                     <div id="development-skills" class="flex flex-wrap gap-2">
@@ -239,7 +342,7 @@
                 <!-- OS Skills -->
                 <div class="skill-card bg-cyber-slate p-6 rounded-lg border border-cyber-zinc transition-all duration-300">
                     <div class="flex items-center space-x-3 mb-4">
-                        <i class="fas fa-server text-cyber-emerald text-2xl"></i>
+                        <i class="fas fa-server text-cyber-purple text-2xl"></i>
                         <h3 class="text-xl font-semibold text-white">Operating Systems</h3>
                     </div>
                     <div id="os-skills" class="flex flex-wrap gap-2">
@@ -255,7 +358,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Projects & Work</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -269,7 +372,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Experience</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div id="experience-timeline" class="relative">
@@ -283,7 +386,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Education</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div id="education-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -297,7 +400,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">Contact Me</h2>
-                <div class="w-24 h-1 bg-cyber-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -307,8 +410,8 @@
                         <h3 class="text-xl font-semibold text-cyber-emerald mb-6">Get In Touch</h3>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-cyber-emerald/10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-envelope text-cyber-emerald"></i>
+                                <div class="w-12 h-12 bg-cyber-purple/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-cyber-purple"></i>
                                 </div>
                                 <div>
                                     <p class="text-white font-medium" id="contact-email">Nooraddin71@gmail.com</p>
@@ -317,8 +420,8 @@
                             </div>
 
                             <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-cyber-emerald/10 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt text-cyber-emerald"></i>
+                                <div class="w-12 h-12 bg-cyber-purple/10 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-cyber-purple"></i>
                                 </div>
                                 <div>
                                     <p class="text-white font-medium" id="contact-location">Libya</p>
@@ -361,7 +464,7 @@
                                       placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit"
-                                class="w-full bg-cyber-emerald hover:bg-cyber-emerald/80 text-black font-semibold py-3 rounded-lg transition-colors">
+                                class="w-full bg-cyber-purple hover:bg-cyber-purple/80 text-white font-semibold py-3 rounded-lg transition-colors">
                             Send Message
                         </button>
                     </form>

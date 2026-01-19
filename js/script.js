@@ -39,7 +39,7 @@ function loadAboutSection() {
         const highlightDiv = document.createElement('div');
         highlightDiv.className = 'flex items-start space-x-3';
         highlightDiv.innerHTML = `
-            <i class="fas fa-check-circle text-cyber-emerald mt-1"></i>
+            <i class="fas fa-check-circle text-cyber-purple mt-1"></i>
             <span class="text-gray-300">${highlight}</span>
         `;
         highlightsList.appendChild(highlightDiv);
@@ -54,7 +54,7 @@ function loadSkillsSection() {
     securitySkills.innerHTML = '';
     skills.security.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-emerald/10 text-cyber-emerald px-3 py-1 rounded-full text-sm border border-cyber-emerald/20';
+        skillTag.className = 'bg-cyber-purple/10 text-cyber-purple px-3 py-1 rounded-full text-sm border border-cyber-purple/20';
         skillTag.textContent = skill;
         securitySkills.appendChild(skillTag);
     });
@@ -64,7 +64,7 @@ function loadSkillsSection() {
     developmentSkills.innerHTML = '';
     skills.development.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-emerald/10 text-cyber-emerald px-3 py-1 rounded-full text-sm border border-cyber-emerald/20';
+        skillTag.className = 'bg-cyber-purple/10 text-cyber-purple px-3 py-1 rounded-full text-sm border border-cyber-purple/20';
         skillTag.textContent = skill;
         developmentSkills.appendChild(skillTag);
     });
@@ -74,7 +74,7 @@ function loadSkillsSection() {
     osSkills.innerHTML = '';
     skills.operatingSystems.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-emerald/10 text-cyber-emerald px-3 py-1 rounded-full text-sm border border-cyber-emerald/20';
+        skillTag.className = 'bg-cyber-purple/10 text-cyber-purple px-3 py-1 rounded-full text-sm border border-cyber-purple/20';
         skillTag.textContent = skill;
         osSkills.appendChild(skillTag);
     });
@@ -89,16 +89,16 @@ function loadProjectsSection() {
         projectCard.className = 'project-card bg-cyber-dark p-6 rounded-lg border border-cyber-zinc transition-all duration-300 group';
 
         const techStack = project.technologies.map(tech =>
-            `<span class="bg-cyber-slate text-cyber-emerald px-2 py-1 rounded text-xs">${tech}</span>`
+            `<span class="bg-cyber-slate text-cyber-purple px-2 py-1 rounded text-xs">${tech}</span>`
         ).join(' ');
 
         projectCard.innerHTML = `
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
-                    <i class="fas fa-project-diagram text-cyber-emerald text-xl"></i>
+                    <i class="fas fa-project-diagram text-cyber-purple text-xl"></i>
                     <h3 class="text-xl font-semibold text-white">${project.title}</h3>
                 </div>
-                <span class="text-xs bg-cyber-emerald/10 text-cyber-emerald px-2 py-1 rounded border border-cyber-emerald/20">
+                <span class="text-xs bg-cyber-purple/10 text-cyber-purple px-2 py-1 rounded border border-cyber-purple/20">
                     ${project.category}
                 </span>
             </div>
@@ -106,7 +106,7 @@ function loadProjectsSection() {
             <p class="text-gray-300 mb-4 leading-relaxed">${project.description}</p>
 
             <div class="mb-4">
-                <h4 class="text-sm font-medium text-cyber-emerald mb-2">Technologies Used:</h4>
+                <h4 class="text-sm font-medium text-cyber-purple mb-2">Technologies Used:</h4>
                 <div class="flex flex-wrap gap-1">
                     ${techStack}
                 </div>
@@ -114,7 +114,7 @@ function loadProjectsSection() {
 
             <div class="flex items-center justify-between">
                 <span class="text-xs text-gray-400">${project.status}</span>
-                <button class="text-cyber-emerald hover:text-white transition-colors">
+                <button class="text-cyber-purple hover:text-white transition-colors">
                     <i class="fas fa-external-link-alt"></i>
                 </button>
             </div>
@@ -143,14 +143,14 @@ function loadExperienceSection() {
 
         experienceItem.innerHTML = `
             <div class="flex-shrink-0 w-16 h-16 bg-cyber-emerald/10 border-2 border-cyber-emerald rounded-full flex items-center justify-center mr-6 relative z-10">
-                <i class="fas fa-briefcase text-cyber-emerald"></i>
+                <i class="fas fa-briefcase text-cyber-purple"></i>
             </div>
 
             <div class="flex-grow bg-cyber-slate p-6 rounded-lg border border-cyber-zinc">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                         <h3 class="text-xl font-semibold text-white">${exp.title}</h3>
-                        <p class="text-cyber-emerald font-medium">${exp.organization}</p>
+                        <p class="text-cyber-purple font-medium">${exp.organization}</p>
                     </div>
                     <span class="text-gray-400 text-sm mt-2 md:mt-0">${exp.period}</span>
                 </div>
@@ -158,7 +158,7 @@ function loadExperienceSection() {
                 <p class="text-gray-300 mb-4">${exp.description}</p>
 
                 <div>
-                    <h4 class="text-cyber-emerald font-medium mb-2">Key Achievements:</h4>
+                    <h4 class="text-cyber-purple font-medium mb-2">Key Achievements:</h4>
                     <ul class="space-y-1 text-sm">
                         ${achievements}
                     </ul>
@@ -181,16 +181,16 @@ function loadEducationSection() {
         educationCard.innerHTML = `
             <div class="flex items-center space-x-3 mb-4">
                 <div class="w-12 h-12 bg-cyber-emerald/10 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-graduation-cap text-cyber-emerald"></i>
+                    <i class="fas fa-graduation-cap text-cyber-purple"></i>
                 </div>
                 <div>
                     <h3 class="text-xl font-semibold text-white">${edu.degree}</h3>
-                    <p class="text-cyber-emerald">${edu.institution}</p>
+                    <p class="text-cyber-purple">${edu.institution}</p>
                 </div>
             </div>
 
             <div class="mb-4">
-                <span class="inline-block bg-cyber-emerald/10 text-cyber-emerald px-3 py-1 rounded-full text-sm border border-cyber-emerald/20">
+                <span class="inline-block bg-cyber-purple/10 text-cyber-purple px-3 py-1 rounded-full text-sm border border-cyber-purple/20">
                     ${edu.period}
                 </span>
                 <span class="ml-2 text-gray-400 text-sm">${edu.status}</span>
