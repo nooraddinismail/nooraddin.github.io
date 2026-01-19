@@ -30,11 +30,8 @@ function loadHeroSection() {
 
 function loadAboutSection() {
     const about = portfolioData.about;
-    const stats = portfolioData.stats;
 
     document.getElementById('about-description').textContent = about.description;
-    document.getElementById('stats-experience').textContent = stats.yearsOfExperience;
-    document.getElementById('stats-projects').textContent = stats.projectsCompleted;
 
     const highlightsList = document.getElementById('highlights-list');
     highlightsList.innerHTML = '';
@@ -43,10 +40,62 @@ function loadAboutSection() {
         const highlightDiv = document.createElement('div');
         highlightDiv.className = 'flex items-start space-x-3';
         highlightDiv.innerHTML = `
-            <i class="fas fa-check-circle text-emerald mt-1"></i>
+            <i class="fas fa-check-circle text-lime mt-1"></i>
             <span class="text-gray-300">${highlight}</span>
         `;
         highlightsList.appendChild(highlightDiv);
+    });
+}
+
+function loadExperienceSection() {
+    const experience = portfolioData.experience;
+
+    // Update Network Security
+    document.getElementById('network-title').textContent = experience.networkSecurity.title;
+    document.getElementById('network-description').textContent = experience.networkSecurity.description;
+
+    const networkSkills = document.getElementById('network-skills');
+    networkSkills.innerHTML = '';
+    experience.networkSecurity.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-lime text-xs"></i>
+            <span>${skill}</span>
+        `;
+        networkSkills.appendChild(skillItem);
+    });
+
+    // Update Software Development
+    document.getElementById('software-title').textContent = experience.softwareDev.title;
+    document.getElementById('software-description').textContent = experience.softwareDev.description;
+
+    const softwareSkills = document.getElementById('software-skills');
+    softwareSkills.innerHTML = '';
+    experience.softwareDev.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-blue text-xs"></i>
+            <span>${skill}</span>
+        `;
+        softwareSkills.appendChild(skillItem);
+    });
+
+    // Update Cyber Operations
+    document.getElementById('cyber-title').textContent = experience.cyberOperations.title;
+    document.getElementById('cyber-description').textContent = experience.cyberOperations.description;
+
+    const cyberSkills = document.getElementById('cyber-skills');
+    cyberSkills.innerHTML = '';
+    experience.cyberOperations.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-lime text-xs"></i>
+            <span>${skill}</span>
+        `;
+        cyberSkills.appendChild(skillItem);
     });
 }
 
@@ -97,16 +146,16 @@ function loadProjectsSection() {
         projectCard.style.animationDelay = `${index * 0.1}s`;
 
         const techStack = project.technologies.map(tech =>
-            `<span class="bg-emerald/10 text-emerald px-2 py-1 rounded text-xs border border-emerald/20">${tech}</span>`
+            `<span class="bg-lime/10 text-lime px-2 py-1 rounded text-xs border border-lime/20">${tech}</span>`
         ).join(' ');
 
         projectCard.innerHTML = `
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
-                    <i class="fas fa-code text-emerald text-xl"></i>
+                    <i class="fas fa-code text-lime text-xl"></i>
                     <h3 class="text-xl font-semibold text-white">${project.title}</h3>
                 </div>
-                <span class="text-xs bg-emerald/10 text-emerald px-2 py-1 rounded border border-emerald/20">
+                <span class="text-xs bg-lime/10 text-lime px-2 py-1 rounded border border-lime/20">
                     ${project.category}
                 </span>
             </div>
@@ -114,106 +163,21 @@ function loadProjectsSection() {
             <p class="text-gray-300 mb-4 leading-relaxed">${project.description}</p>
 
             <div class="mb-4">
-                <h4 class="text-sm font-medium text-emerald mb-2">Technologies Used:</h4>
+                <h4 class="text-sm font-medium text-lime mb-2">Technologies Used:</h4>
                 <div class="flex flex-wrap gap-1">
                     ${techStack}
                 </div>
             </div>
 
             <div class="flex items-center justify-between">
-                <span class="text-xs text-emerald font-medium">${project.status}</span>
-                <button class="text-emerald hover:text-white transition-colors">
+                <span class="text-xs text-lime font-medium">${project.status}</span>
+                <button class="text-lime hover:text-white transition-colors">
                     <i class="fas fa-external-link-alt"></i>
                 </button>
             </div>
         `;
 
         projectsGrid.appendChild(projectCard);
-    });
-}
-
-function loadExperienceSection() {
-    const experience = portfolioData.experience;
-
-    // Update Network Security
-    document.getElementById('network-title').textContent = experience.networkSecurity.title;
-    document.getElementById('network-description').textContent = experience.networkSecurity.description;
-
-    const networkSkills = document.getElementById('network-skills');
-    networkSkills.innerHTML = '';
-    experience.networkSecurity.skills.forEach(skill => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
-        skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-emerald text-xs"></i>
-            <span>${skill}</span>
-        `;
-        networkSkills.appendChild(skillItem);
-    });
-
-    // Update Software Development
-    document.getElementById('software-title').textContent = experience.softwareDev.title;
-    document.getElementById('software-description').textContent = experience.softwareDev.description;
-
-    const softwareSkills = document.getElementById('software-skills');
-    softwareSkills.innerHTML = '';
-    experience.softwareDev.skills.forEach(skill => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
-        skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-blue text-xs"></i>
-            <span>${skill}</span>
-        `;
-        softwareSkills.appendChild(skillItem);
-    });
-
-    // Update Cyber Operations
-    document.getElementById('cyber-title').textContent = experience.cyberOperations.title;
-    document.getElementById('cyber-description').textContent = experience.cyberOperations.description;
-
-    const cyberSkills = document.getElementById('cyber-skills');
-    cyberSkills.innerHTML = '';
-    experience.cyberOperations.skills.forEach(skill => {
-        const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
-        skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-emerald text-xs"></i>
-            <span>${skill}</span>
-        `;
-        cyberSkills.appendChild(skillItem);
-    });
-}
-
-function loadEducationSection() {
-    const educationGrid = document.getElementById('education-grid');
-    educationGrid.innerHTML = '';
-
-    portfolioData.education.forEach(edu => {
-        const educationCard = document.createElement('div');
-        educationCard.className = 'bg-cyber-dark p-6 rounded-lg border border-cyber-zinc';
-
-        educationCard.innerHTML = `
-            <div class="flex items-center space-x-3 mb-4">
-                <div class="w-12 h-12 bg-cyber-emerald/10 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-graduation-cap text-cyber-lime"></i>
-                </div>
-                <div>
-                    <h3 class="text-xl font-semibold text-white">${edu.degree}</h3>
-                    <p class="text-cyber-lime">${edu.institution}</p>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <span class="inline-block bg-cyber-lime/10 text-cyber-lime px-3 py-1 rounded-full text-sm border border-cyber-lime/20">
-                    ${edu.period}
-                </span>
-                <span class="ml-2 text-gray-400 text-sm">${edu.status}</span>
-            </div>
-
-            <p class="text-gray-300">${edu.description}</p>
-        `;
-
-        educationGrid.appendChild(educationCard);
     });
 }
 
@@ -287,7 +251,7 @@ function showNotification(message, type) {
     const notification = document.createElement('div');
     notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg ${
         type === 'success'
-            ? 'bg-cyber-emerald text-black'
+            ? 'bg-lime text-black'
             : 'bg-red-500 text-white'
     }`;
     notification.innerHTML = `
@@ -309,7 +273,7 @@ function showNotification(message, type) {
 
 function initializeScrollEffects() {
     // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
@@ -355,48 +319,23 @@ function initializeScrollEffects() {
     document.querySelectorAll('section').forEach(section => {
         observer.observe(section);
     });
-
-    // Add fade-in animation CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-fade-in {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    `;
-    document.head.appendChild(style);
 }
 
-// Terminal typing effect for hero description
-function initializeTypingEffect() {
-    const terminalElement = document.querySelector('.terminal-text');
-    if (terminalElement) {
-        const text = "> Cybersecurity & Digital Forensics Student";
-        let index = 0;
-
-        function typeWriter() {
-            if (index < text.length) {
-                terminalElement.textContent = text.substring(0, index + 1);
-                index++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        setTimeout(typeWriter, 2000);
-    }
-}
-
-// Initialize typing effect when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initializeTypingEffect, 1000);
+// Add loading animation
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
 });
+
+// Add CSS for loading animation
+const style = document.createElement('style');
+style.textContent = `
+    body {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    body.loaded {
+        opacity: 1;
+    }
+`;
+document.head.appendChild(style);

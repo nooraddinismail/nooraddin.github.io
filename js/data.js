@@ -11,7 +11,7 @@ const portfolioData = {
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
     github: "https://github.com/nooraddinismail",
     profileImage: "nooraddin.png",
-    status: "🟢 Final Year Student | Seeking 2025 Opportunities"
+    status: "Available for 2025 Opportunities"
   },
 
   // About Section
@@ -25,7 +25,7 @@ const portfolioData = {
     ]
   },
 
-  // Experience Sections
+  // Experience Areas
   experience: {
     networkSecurity: {
       title: "Network Security",
@@ -108,7 +108,7 @@ const portfolioData = {
     }
   },
 
-  // Projects/Portfolio
+  // Projects
   projects: [
     {
       title: "Secure Network Architecture",
@@ -140,25 +140,7 @@ const portfolioData = {
     }
   ],
 
-  // Education
-  education: [
-    {
-      degree: "Bachelor's in Cybersecurity & Digital Forensics",
-      institution: "Al-Nasser University",
-      period: "2022 - 2026",
-      status: "Final Year",
-      description: "Comprehensive program covering network security, digital forensics, ethical hacking, cryptography, and secure software development."
-    },
-    {
-      degree: "English Language Diploma",
-      institution: "4U Institute",
-      period: "Completed",
-      status: "Certified",
-      description: "Advanced English proficiency for technical documentation and international cybersecurity collaboration."
-    }
-  ],
-
-  // Certifications & Achievements
+  // Certifications
   certifications: [
     {
       name: "TryHackMe Platform",
@@ -176,8 +158,8 @@ const portfolioData = {
 
   // Contact Information
   contact: {
-    location: "Sana'a-Sawan Street, Yemen",
-    phone: "+967 774 208 430",
+    location: "Sana'a-Sawan Street",
+    phone: "+967774208430",
     email: "Nooraddin71@gmail.com",
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
     github: "https://github.com/nooraddinismail"

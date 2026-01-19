@@ -19,13 +19,13 @@
                         'mono': ['Fira Code', 'ui-monospace', 'SFMono-Regular'],
                     },
                     colors: {
-                        'midnight': '#050505',
-                        'cyber-dark': '#0a0a0f',
-                        'cyber-card': '#111118',
+                        'midnight': '#0a0a0c',
+                        'cyber-dark': '#111118',
+                        'cyber-card': '#1a1a24',
                         'cyber-accent': '#1a1a24',
-                        'emerald': '#10b981',
+                        'lime': '#bef264',
                         'blue': '#3b82f6',
-                        'glow': '#22d3ee'
+                        'glow': '#60a5fa'
                     },
                     animation: {
                         'glow': 'glow 2s ease-in-out infinite alternate',
@@ -37,8 +37,8 @@
                     },
                     keyframes: {
                         glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(16, 185, 129, 0.6)' }
+                            '0%': { boxShadow: '0 0 20px rgba(190, 242, 100, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(190, 242, 100, 0.6)' }
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
@@ -64,27 +64,27 @@
 </head>
 <body class="bg-midnight text-gray-100 min-h-screen font-sans">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-cyber-card/95 backdrop-blur-xl border-b border-emerald/20 z-50">
+    <nav class="fixed top-0 w-full bg-cyber-card/95 backdrop-blur-xl border-b border-lime/20 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 bg-emerald/20 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-emerald text-sm"></i>
+                    <div class="w-8 h-8 bg-lime/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-lime text-sm"></i>
                     </div>
-                    <span class="text-lg font-bold text-emerald font-mono">NOORADDIN</span>
+                    <span class="text-lg font-bold text-lime font-mono">NOORADDIN</span>
                 </div>
 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#hero" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">Home</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">About</a>
-                    <a href="#experience" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">Experience</a>
-                    <a href="#skills" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-emerald transition-all duration-300 text-sm font-medium">Contact</a>
+                    <a href="#hero" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">About</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">Experience</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-lime transition-all duration-300 text-sm font-medium">Contact</a>
                 </div>
 
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 hover:text-emerald transition-colors">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-lime transition-colors">
                         <i class="fas fa-bars text-lg"></i>
                     </button>
                 </div>
@@ -92,25 +92,25 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/95 backdrop-blur-xl border-t border-emerald/20">
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/95 backdrop-blur-xl border-t border-lime/20">
             <div class="px-4 pt-2 pb-3 space-y-2">
-                <a href="#hero" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">Home</a>
-                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">About</a>
-                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">Experience</a>
-                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">Skills</a>
-                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">Projects</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-emerald transition-colors">Contact</a>
+                <a href="#hero" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">Home</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">About</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">Experience</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">Projects</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-lime transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="pt-16 min-h-screen flex items-center relative overflow-hidden">
+    <section id="hero" class="pt-16 min-h-screen flex items-center relative overflow-hidden dashboard-bg">
         <!-- Background Effects -->
         <div class="absolute inset-0 opacity-30">
-            <div class="absolute top-20 left-10 w-72 h-72 bg-emerald/10 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute top-20 left-10 w-72 h-72 bg-lime/10 rounded-full blur-3xl animate-pulse"></div>
             <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
-            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-lime/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 4s;"></div>
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
@@ -120,12 +120,12 @@
                     <div class="space-y-4">
                         <!-- Status Badge -->
                         <div class="status-badge animate-fade-in">
-                            <span id="status-badge">🟢 Final Year Student | Seeking 2025 Opportunities</span>
+                            <span id="status-badge">Available for 2025 Opportunities</span>
                         </div>
 
                         <!-- Main Title -->
                         <div class="space-y-2">
-                            <h1 class="text-5xl lg:text-7xl font-mono font-bold bg-gradient-to-r from-emerald to-blue bg-clip-text text-transparent animate-fade-in-up">
+                            <h1 class="text-5xl lg:text-7xl font-mono font-bold bg-gradient-to-r from-lime to-blue bg-clip-text text-transparent animate-fade-in-up">
                                 NOORADDIN
                             </h1>
                             <h2 class="text-3xl lg:text-5xl font-mono font-bold text-white animate-fade-in-up" style="animation-delay: 0.2s;">
@@ -139,18 +139,18 @@
                         </p>
 
                         <!-- University -->
-                        <p class="text-emerald font-mono text-lg animate-fade-in-up" style="animation-delay: 0.6s;" id="hero-university">
+                        <p class="text-lime font-mono text-lg animate-fade-in-up" style="animation-delay: 0.6s;" id="hero-university">
                             Al-Nasser University
                         </p>
                     </div>
 
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style="animation-delay: 0.8s;">
-                        <a href="#contact" class="bg-emerald hover:bg-emerald/80 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald/25 hover:scale-105 inline-flex items-center justify-center space-x-2">
+                        <a href="#contact" class="bg-lime hover:bg-lime/80 text-black font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-lime/25 hover:scale-105 inline-flex items-center justify-center space-x-2">
                             <i class="fas fa-envelope"></i>
                             <span>Contact Me</span>
                         </a>
-                        <a href="My cv.pdf" target="_blank" class="border-2 border-emerald/50 hover:border-emerald text-emerald hover:text-black hover:bg-emerald font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-emerald/25 hover:scale-105 inline-flex items-center justify-center space-x-2">
+                        <a href="My cv.pdf" target="_blank" class="border-2 border-lime/50 hover:border-lime text-lime hover:text-black hover:bg-lime font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-lime/25 hover:scale-105 inline-flex items-center justify-center space-x-2">
                             <i class="fas fa-download"></i>
                             <span>Download CV</span>
                         </a>
@@ -159,7 +159,7 @@
                     <!-- Quick Stats -->
                     <div class="grid grid-cols-2 gap-4 animate-fade-in-up" style="animation-delay: 1s;">
                         <div class="glass-card p-4 text-center">
-                            <div class="text-2xl font-mono font-bold text-emerald" id="stat-experience">3+</div>
+                            <div class="text-2xl font-mono font-bold text-lime" id="stat-experience">3+</div>
                             <div class="text-gray-400 text-sm">Years Learning</div>
                         </div>
                         <div class="glass-card p-4 text-center">
@@ -173,7 +173,7 @@
                 <div class="relative animate-fade-in-up" style="animation-delay: 0.6s;">
                     <div class="relative">
                         <!-- Glowing background effect -->
-                        <div class="absolute -inset-4 bg-gradient-to-r from-emerald/20 to-blue/20 rounded-3xl blur-2xl animate-pulse"></div>
+                        <div class="absolute -inset-4 bg-gradient-to-r from-lime/20 to-blue/20 rounded-3xl blur-2xl animate-pulse"></div>
 
                         <!-- Main image container -->
                         <div class="relative glass-card p-8 rounded-3xl overflow-hidden">
@@ -181,12 +181,12 @@
 
                             <!-- Profile image -->
                             <div class="relative inline-block mx-auto">
-                                <img src="nooraddin.png" alt="Nooraddin Ismail" class="w-64 h-64 rounded-2xl object-cover mx-auto glow-emerald" id="profile-image">
-                                <div class="absolute -inset-2 bg-gradient-to-r from-emerald/30 to-blue/30 rounded-2xl blur-lg animate-pulse"></div>
+                                <img src="nooraddin.png" alt="Nooraddin Ismail" class="w-64 h-64 rounded-2xl object-cover mx-auto glow-lime" id="profile-image">
+                                <div class="absolute -inset-2 bg-gradient-to-r from-lime/30 to-blue/30 rounded-2xl blur-lg animate-pulse"></div>
                             </div>
 
                             <!-- Decorative elements -->
-                            <div class="absolute top-4 right-4 w-3 h-3 bg-emerald rounded-full animate-pulse"></div>
+                            <div class="absolute top-4 right-4 w-3 h-3 bg-lime rounded-full animate-pulse"></div>
                             <div class="absolute bottom-4 left-4 w-2 h-2 bg-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-mono font-bold text-white mb-4 animate-fade-in">About Me</h2>
-                <div class="w-24 h-1 bg-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-lime mx-auto"></div>
             </div>
 
             <div class="glass-card p-8 animate-fade-in-up">
@@ -210,7 +210,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-4">
-                        <h3 class="text-xl font-mono font-semibold text-emerald">Key Highlights</h3>
+                        <h3 class="text-xl font-mono font-semibold text-lime">Key Highlights</h3>
                         <div id="highlights-list" class="space-y-3">
                             <!-- Highlights will be populated by JavaScript -->
                         </div>
@@ -219,9 +219,9 @@
                     <div class="space-y-4">
                         <h3 class="text-xl font-mono font-semibold text-blue">Quick Facts</h3>
                         <div class="space-y-3 text-gray-300">
-                            <p><span class="text-emerald">🎓</span> Final Year at Al-Nasser University</p>
+                            <p><span class="text-lime">🎓</span> Final Year at Al-Nasser University</p>
                             <p><span class="text-blue">🔒</span> Network Security Specialist</p>
-                            <p><span class="text-emerald">💻</span> Full-Stack Development</p>
+                            <p><span class="text-lime">💻</span> Full-Stack Development</p>
                             <p><span class="text-blue">🛡️</span> Ethical Hacking Enthusiast</p>
                         </div>
                     </div>
@@ -235,15 +235,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-mono font-bold text-white mb-4 animate-fade-in">Experience Areas</h2>
-                <div class="w-24 h-1 bg-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-lime mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Network Security -->
                 <div class="experience-card animate-slide-in">
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-network-wired text-emerald"></i>
+                        <div class="w-12 h-12 bg-lime/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-network-wired text-lime"></i>
                         </div>
                         <h3 class="text-xl font-mono font-semibold text-white" id="network-title">Network Security</h3>
                     </div>
@@ -270,8 +270,8 @@
                 <!-- Cyber Operations -->
                 <div class="experience-card animate-slide-in" style="animation-delay: 0.4s;">
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-emerald"></i>
+                        <div class="w-12 h-12 bg-lime/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-lime"></i>
                         </div>
                         <h3 class="text-xl font-mono font-semibold text-white" id="cyber-title">Cyber Operations</h3>
                     </div>
@@ -289,14 +289,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-mono font-bold text-white mb-4 animate-fade-in">Technical Skills</h2>
-                <div class="w-24 h-1 bg-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-lime mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Programming -->
                 <div class="glass-card p-6 animate-fade-in-up">
                     <div class="flex items-center space-x-3 mb-6">
-                        <i class="fas fa-code text-emerald text-2xl"></i>
+                        <i class="fas fa-code text-lime text-2xl"></i>
                         <h3 class="text-xl font-mono font-semibold text-white" id="programming-title">Programming</h3>
                     </div>
                     <div id="programming-skills" class="flex flex-wrap gap-2">
@@ -318,7 +318,7 @@
                 <!-- Specialized -->
                 <div class="glass-card p-6 animate-fade-in-up" style="animation-delay: 0.4s;">
                     <div class="flex items-center space-x-3 mb-6">
-                        <i class="fas fa-shield-alt text-emerald text-2xl"></i>
+                        <i class="fas fa-shield-alt text-lime text-2xl"></i>
                         <h3 class="text-xl font-mono font-semibold text-white" id="specialized-title">Specialized Skills</h3>
                     </div>
                     <div id="specialized-skills" class="flex flex-wrap gap-2">
@@ -334,7 +334,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-mono font-bold text-white mb-4 animate-fade-in">Featured Projects</h2>
-                <div class="w-24 h-1 bg-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-lime mx-auto"></div>
             </div>
 
             <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -348,18 +348,18 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-mono font-bold text-white mb-4 animate-fade-in">Get In Touch</h2>
-                <div class="w-24 h-1 bg-emerald mx-auto"></div>
+                <div class="w-24 h-1 bg-lime mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Info -->
                 <div class="space-y-6 animate-slide-in">
                     <div class="glass-card p-6">
-                        <h3 class="text-xl font-mono font-semibold text-emerald mb-6">Contact Information</h3>
+                        <h3 class="text-xl font-mono font-semibold text-lime mb-6">Contact Information</h3>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt text-emerald"></i>
+                                <div class="w-12 h-12 bg-lime/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-lime"></i>
                                 </div>
                                 <div>
                                     <p class="text-white font-medium" id="contact-location">Sana'a-Sawan Street</p>
@@ -372,14 +372,14 @@
                                     <i class="fas fa-phone text-blue"></i>
                                 </div>
                                 <div>
-                                    <p class="text-white font-medium" id="contact-phone">+967 774 208 430</p>
+                                    <p class="text-white font-medium" id="contact-phone">+967774208430</p>
                                     <p class="text-gray-400">Phone</p>
                                 </div>
                             </div>
 
                             <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-emerald/20 rounded-lg flex items-center justify-center">
-                                    <i class="fas fa-envelope text-emerald"></i>
+                                <div class="w-12 h-12 bg-lime/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-envelope text-lime"></i>
                                 </div>
                                 <div>
                                     <p class="text-white font-medium" id="contact-email">Nooraddin71@gmail.com</p>
@@ -393,14 +393,14 @@
                     <div class="glass-card p-6">
                         <h3 class="text-xl font-mono font-semibold text-blue mb-6">Connect With Me</h3>
                         <div class="flex space-x-4">
-                            <a href="#" id="github-link" class="w-12 h-12 bg-cyber-card border border-emerald/20 rounded-lg flex items-center justify-center hover:border-emerald hover:bg-emerald/10 transition-all duration-300">
-                                <i class="fab fa-github text-gray-400 hover:text-emerald transition-colors"></i>
+                            <a href="#" id="github-link" class="w-12 h-12 bg-cyber-card border border-lime/20 rounded-lg flex items-center justify-center hover:border-lime hover:bg-lime/10 transition-all duration-300">
+                                <i class="fab fa-github text-gray-400 hover:text-lime transition-colors"></i>
                             </a>
                             <a href="#" id="linkedin-link" class="w-12 h-12 bg-cyber-card border border-blue/20 rounded-lg flex items-center justify-center hover:border-blue hover:bg-blue/10 transition-all duration-300">
                                 <i class="fab fa-linkedin text-gray-400 hover:text-blue transition-colors"></i>
                             </a>
-                            <a href="#" class="w-12 h-12 bg-cyber-card border border-emerald/20 rounded-lg flex items-center justify-center hover:border-emerald hover:bg-emerald/10 transition-all duration-300">
-                                <i class="fab fa-twitter text-gray-400 hover:text-emerald transition-colors"></i>
+                            <a href="#" class="w-12 h-12 bg-cyber-card border border-lime/20 rounded-lg flex items-center justify-center hover:border-lime hover:bg-lime/10 transition-all duration-300">
+                                <i class="fab fa-twitter text-gray-400 hover:text-lime transition-colors"></i>
                             </a>
                         </div>
                     </div>
@@ -412,21 +412,21 @@
                     <form id="contactForm" class="space-y-6">
                         <div>
                             <input type="text" id="name" name="name"
-                                   class="w-full bg-cyber-accent border border-emerald/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-emerald transition-colors"
+                                   class="w-full bg-cyber-accent border border-lime/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-lime transition-colors"
                                    placeholder="Your Name" required>
                         </div>
                         <div>
                             <input type="email" id="email" name="email"
-                                   class="w-full bg-cyber-accent border border-emerald/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-emerald transition-colors"
+                                   class="w-full bg-cyber-accent border border-lime/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-lime transition-colors"
                                    placeholder="Your Email" required>
                         </div>
                         <div>
                             <textarea id="message" name="message" rows="5"
-                                      class="w-full bg-cyber-accent border border-emerald/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-emerald transition-colors resize-none"
+                                      class="w-full bg-cyber-accent border border-lime/20 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-lime transition-colors resize-none"
                                       placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit"
-                                class="w-full bg-emerald hover:bg-emerald/80 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-emerald/25">
+                                class="w-full bg-lime hover:bg-lime/80 text-black font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-lime/25">
                             Send Message
                         </button>
                     </form>
@@ -436,11 +436,11 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-cyber-card border-t border-emerald/20 py-8">
+    <footer class="bg-cyber-card border-t border-lime/20 py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                    <i class="fas fa-shield-alt text-emerald"></i>
+                    <i class="fas fa-shield-alt text-lime"></i>
                     <span class="text-gray-400 font-mono">© 2024 Nooraddin Ismail. All rights reserved.</span>
                 </div>
                 <div class="text-gray-400 text-sm">
