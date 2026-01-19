@@ -1,156 +1,198 @@
-// Cybersecurity Portfolio Data
+// Cybersecurity Portfolio Data - Nooraddin Ismail
 const portfolioData = {
+  // Personal Information
   personal: {
     name: "Nooraddin Ismail",
-    headline: "Final Year Cybersecurity & Digital Forensics Student at Al-Nasser University",
+    title: "Final Year Cybersecurity & Digital Forensics Student",
+    university: "Al-Nasser University",
+    location: "Sana'a-Sawan Street",
+    phone: "+967774208430",
     email: "Nooraddin71@gmail.com",
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
     github: "https://github.com/nooraddinismail",
-    profileImage: "https://via.placeholder.com/300x300/374151/10b981?text=NI"
+    profileImage: "nooraddin.png",
+    status: "🟢 Final Year Student | Seeking 2025 Opportunities"
   },
 
+  // About Section
   about: {
-    description: "A dedicated cybersecurity and digital forensics student with a passion for problem-solving and ethical hacking. I actively practice on TryHackMe to enhance my skills and stay updated with the latest security trends and techniques. My goal is to contribute to the cybersecurity field by protecting digital assets and investigating cyber threats.",
+    description: "Dedicated Cybersecurity & Digital Forensics student with a passion for ethical hacking, network security, and digital investigations. Specializing in penetration testing, forensic analysis, and secure system architecture.",
     highlights: [
-      "Problem-solving oriented approach to cybersecurity challenges",
-      "Active practitioner on TryHackMe platform",
-      "Focused on ethical hacking and digital forensics",
-      "Committed to continuous learning and skill development"
+      "Network Security Specialist (Cisco, Wireshark, Firewalls)",
+      "Software Development (Python, Flutter, Java)",
+      "Cyber Operations & Digital Forensics",
+      "Active TryHackMe Practitioner"
     ]
   },
 
+  // Experience Sections
+  experience: {
+    networkSecurity: {
+      title: "Network Security",
+      description: "Advanced expertise in network infrastructure and security protocols",
+      skills: [
+        "Cisco Firewalls Configuration",
+        "Routing & Switching (OSPF, EIGRP)",
+        "NAT/DMZ Implementation",
+        "Wireshark Traffic Analysis",
+        "Network Segmentation",
+        "VPN Configuration",
+        "Intrusion Detection Systems"
+      ]
+    },
+    softwareDev: {
+      title: "Software Development",
+      description: "Full-stack development with focus on secure application design",
+      skills: [
+        "Flutter App Development",
+        "Product Management Systems",
+        "GUI Design for Business Applications",
+        "Database Design & Management",
+        "API Development",
+        "User Interface/UX Design",
+        "Cross-platform Development"
+      ]
+    },
+    cyberOperations: {
+      title: "Cyber Operations",
+      description: "Hands-on experience in offensive and defensive cybersecurity",
+      skills: [
+        "System Hacking & Penetration Testing",
+        "Criminal Investigations & Digital Forensics",
+        "Active Directory Management",
+        "Cipher Chat Encryption Systems",
+        "Vulnerability Assessment",
+        "Incident Response",
+        "Malware Analysis"
+      ]
+    }
+  },
+
+  // Skills Grid
+  skills: {
+    programming: {
+      title: "Programming",
+      icon: "fas fa-code",
+      skills: [
+        "Python",
+        "C++",
+        "Java",
+        "SQL",
+        "JavaScript",
+        "Dart (Flutter)"
+      ]
+    },
+    tools: {
+      title: "Tools & Platforms",
+      icon: "fas fa-tools",
+      skills: [
+        "Wireshark",
+        "Kali Linux",
+        "Ubuntu",
+        "Metasploit",
+        "Burp Suite",
+        "Nmap"
+      ]
+    },
+    specialized: {
+      title: "Specialized Skills",
+      icon: "fas fa-shield-alt",
+      skills: [
+        "Digital Forensics",
+        "Active Directory",
+        "Network Security",
+        "Ethical Hacking",
+        "Cryptography",
+        "Incident Response"
+      ]
+    }
+  },
+
+  // Projects/Portfolio
+  projects: [
+    {
+      title: "Secure Network Architecture",
+      category: "Network Security",
+      description: "Designed and implemented enterprise-level network security infrastructure with advanced threat protection and monitoring capabilities.",
+      technologies: ["Cisco ASA", "Juniper", "Wireshark", "SNORT", "pfSense"],
+      status: "Completed"
+    },
+    {
+      title: "Digital Forensics Lab",
+      category: "Cyber Investigations",
+      description: "Built comprehensive digital forensics environment for analyzing cyber attacks, collecting evidence, and conducting investigations.",
+      technologies: ["FTK Imager", "Autopsy", "EnCase", "Wireshark", "Volatility"],
+      status: "Completed"
+    },
+    {
+      title: "CipherChat Application",
+      category: "Cryptography",
+      description: "Developed secure messaging application with end-to-end encryption, implementing multiple cryptographic algorithms and secure key exchange.",
+      technologies: ["Java", "AES", "RSA", "Diffie-Hellman", "SSL/TLS"],
+      status: "Completed"
+    },
+    {
+      title: "Business Management Suite",
+      category: "Software Development",
+      description: "Created comprehensive business management system with inventory tracking, customer management, and analytics dashboard.",
+      technologies: ["Flutter", "Firebase", "SQLite", "Dart", "Material Design"],
+      status: "Completed"
+    }
+  ],
+
+  // Education
   education: [
     {
       degree: "Bachelor's in Cybersecurity & Digital Forensics",
       institution: "Al-Nasser University",
       period: "2022 - 2026",
-      status: "Final Year Student",
-      description: "Specializing in cybersecurity principles, digital forensics, network security, and ethical hacking methodologies."
+      status: "Final Year",
+      description: "Comprehensive program covering network security, digital forensics, ethical hacking, cryptography, and secure software development."
     },
     {
-      degree: "English Diploma",
+      degree: "English Language Diploma",
       institution: "4U Institute",
       period: "Completed",
-      status: "Completed",
-      description: "Advanced English language proficiency for professional communication in cybersecurity field."
+      status: "Certified",
+      description: "Advanced English proficiency for technical documentation and international cybersecurity collaboration."
     }
   ],
 
-  skills: {
-    security: [
-      "Digital Forensics",
-      "Network Security",
-      "Wireshark Analysis",
-      "Firewall Configuration",
-      "Penetration Testing",
-      "Active Directory",
-      "Ethical Hacking",
-      "Cyber Threat Analysis"
-    ],
-    development: [
-      "Python",
-      "SQL",
-      "C++",
-      "Java (OOP)",
-      "Flutter",
-      "HTML/CSS",
-      "JavaScript",
-      "Database Management"
-    ],
-    operatingSystems: [
-      "Windows Server",
-      "Kali Linux",
-      "Ubuntu",
-      "Windows Desktop",
-      "Linux Command Line",
-      "Virtualization"
-    ]
-  },
-
-  projects: [
-    {
-      title: "Network Architecture Design",
-      category: "Network Security",
-      description: "Designed and implemented comprehensive network architectures including router configuration, switch management, NAT implementation, and DMZ setup for secure network segmentation.",
-      technologies: ["Cisco Routers", "Network Switches", "NAT", "DMZ", "Firewall Rules"],
-      status: "Completed"
-    },
-    {
-      title: "Hacking & Criminal Investigations",
-      category: "Digital Forensics",
-      description: "Conducted digital forensics investigations, analyzed cyber attack patterns, and developed methodologies for criminal cyber investigations and evidence collection.",
-      technologies: ["Digital Forensics Tools", "Evidence Analysis", "Cyber Investigation", "Report Writing"],
-      status: "Completed"
-    },
-    {
-      title: "Cipher Chat Application",
-      category: "Cryptography",
-      description: "Developed a secure messaging application with advanced encryption and decryption capabilities, implementing various cryptographic algorithms for secure communication.",
-      technologies: ["Cryptography", "Encryption Algorithms", "Java", "Secure Communication"],
-      status: "Completed"
-    },
-    {
-      title: "Web & App Development Projects",
-      category: "Development",
-      description: "Created multiple web and mobile applications including GUI design for clothing business management systems and comprehensive product management platforms.",
-      technologies: ["Flutter", "HTML/CSS", "JavaScript", "GUI Design", "Database Integration"],
-      status: "Completed"
-    }
-  ],
-
-  experience: [
-    {
-      title: "Cybersecurity Student Researcher",
-      organization: "Al-Nasser University",
-      period: "2023 - Present",
-      description: "Conducting research in network security, digital forensics, and ethical hacking. Participating in cybersecurity competitions and practical labs.",
-      achievements: [
-        "Completed advanced network security modules",
-        "Active TryHackMe practitioner",
-        "Developed multiple security projects",
-        "Participated in cybersecurity workshops"
-      ]
-    },
-    {
-      title: "Independent Security Projects",
-      organization: "Personal Projects",
-      period: "2022 - Present",
-      description: "Self-directed learning and project development in cybersecurity, focusing on practical implementation of security concepts and tools.",
-      achievements: [
-        "Built network architecture models",
-        "Developed encryption applications",
-        "Conducted digital forensics exercises",
-        "Created security-focused web applications"
-      ]
-    }
-  ],
-
+  // Certifications & Achievements
   certifications: [
     {
-      name: "TryHackMe Active Practitioner",
+      name: "TryHackMe Platform",
       issuer: "TryHackMe",
-      status: "Active",
-      description: "Regular practice and completion of various cybersecurity challenges and rooms"
+      status: "Active Practitioner",
+      description: "Regular participation in cybersecurity challenges and room completions"
+    },
+    {
+      name: "Cisco Networking Fundamentals",
+      issuer: "Cisco",
+      status: "Certified",
+      description: "Network infrastructure and security fundamentals"
     }
   ],
 
+  // Contact Information
   contact: {
+    location: "Sana'a-Sawan Street, Yemen",
+    phone: "+967 774 208 430",
     email: "Nooraddin71@gmail.com",
-    phone: "+967774208430",
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
-    github: "https://github.com/nooraddinismail",
-    location: "Sana'a-Sawan Street, Yemen"
+    github: "https://github.com/nooraddinismail"
   },
 
+  // Stats for dashboard
   stats: {
-    yearsOfExperience: "3+",
-    projectsCompleted: "10+",
-    certifications: "5+",
-    skillsMastered: "25+"
+    experience: "3+ Years",
+    projects: "10+ Completed",
+    certifications: "5+ Earned",
+    skills: "25+ Mastered"
   }
 };
 
-// Export the data for use in the main script
+// Export for Node.js compatibility
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = portfolioData;
 }

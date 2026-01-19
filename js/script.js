@@ -3,10 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load data and populate content
     loadHeroSection();
     loadAboutSection();
+    loadExperienceSection();
     loadSkillsSection();
     loadProjectsSection();
-    loadExperienceSection();
-    loadEducationSection();
     loadContactSection();
 
     // Initialize other functionality
@@ -16,12 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadHeroSection() {
-    const hero = portfolioData.personal;
+    const personal = portfolioData.personal;
 
-    document.getElementById('hero-name').textContent = hero.name;
-    document.getElementById('hero-headline').textContent = hero.headline;
-    document.getElementById('hero-description').textContent = portfolioData.about.description;
-    document.getElementById('profile-image').src = hero.profileImage;
+    // Update hero content
+    document.getElementById('status-badge').textContent = personal.status;
+    document.getElementById('hero-title').textContent = personal.title;
+    document.getElementById('hero-university').textContent = personal.university;
+    document.getElementById('profile-image').src = personal.profileImage;
+
+    // Update stats
+    document.getElementById('stat-experience').textContent = portfolioData.stats.experience;
+    document.getElementById('stat-projects').textContent = portfolioData.stats.projects;
 }
 
 function loadAboutSection() {
@@ -39,7 +43,7 @@ function loadAboutSection() {
         const highlightDiv = document.createElement('div');
         highlightDiv.className = 'flex items-start space-x-3';
         highlightDiv.innerHTML = `
-            <i class="fas fa-check-circle text-cyber-lime mt-1"></i>
+            <i class="fas fa-check-circle text-emerald mt-1"></i>
             <span class="text-gray-300">${highlight}</span>
         `;
         highlightsList.appendChild(highlightDiv);
@@ -49,34 +53,37 @@ function loadAboutSection() {
 function loadSkillsSection() {
     const skills = portfolioData.skills;
 
-    // Security Skills
-    const securitySkills = document.getElementById('security-skills');
-    securitySkills.innerHTML = '';
-    skills.security.forEach(skill => {
+    // Programming Skills
+    document.getElementById('programming-title').textContent = skills.programming.title;
+    const programmingSkills = document.getElementById('programming-skills');
+    programmingSkills.innerHTML = '';
+    skills.programming.skills.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-lime/10 text-cyber-lime px-3 py-1 rounded-full text-sm border border-cyber-lime/20';
+        skillTag.className = 'skill-tag';
         skillTag.textContent = skill;
-        securitySkills.appendChild(skillTag);
+        programmingSkills.appendChild(skillTag);
     });
 
-    // Development Skills
-    const developmentSkills = document.getElementById('development-skills');
-    developmentSkills.innerHTML = '';
-    skills.development.forEach(skill => {
+    // Tools Skills
+    document.getElementById('tools-title').textContent = skills.tools.title;
+    const toolsSkills = document.getElementById('tools-skills');
+    toolsSkills.innerHTML = '';
+    skills.tools.skills.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-lime/10 text-cyber-lime px-3 py-1 rounded-full text-sm border border-cyber-lime/20';
+        skillTag.className = 'skill-tag';
         skillTag.textContent = skill;
-        developmentSkills.appendChild(skillTag);
+        toolsSkills.appendChild(skillTag);
     });
 
-    // OS Skills
-    const osSkills = document.getElementById('os-skills');
-    osSkills.innerHTML = '';
-    skills.operatingSystems.forEach(skill => {
+    // Specialized Skills
+    document.getElementById('specialized-title').textContent = skills.specialized.title;
+    const specializedSkills = document.getElementById('specialized-skills');
+    specializedSkills.innerHTML = '';
+    skills.specialized.skills.forEach(skill => {
         const skillTag = document.createElement('span');
-        skillTag.className = 'bg-cyber-lime/10 text-cyber-lime px-3 py-1 rounded-full text-sm border border-cyber-lime/20';
+        skillTag.className = 'skill-tag';
         skillTag.textContent = skill;
-        osSkills.appendChild(skillTag);
+        specializedSkills.appendChild(skillTag);
     });
 }
 
@@ -84,21 +91,22 @@ function loadProjectsSection() {
     const projectsGrid = document.getElementById('projects-grid');
     projectsGrid.innerHTML = '';
 
-    portfolioData.projects.forEach(project => {
+    portfolioData.projects.forEach((project, index) => {
         const projectCard = document.createElement('div');
-        projectCard.className = 'project-card bg-cyber-dark p-6 rounded-lg border border-cyber-zinc transition-all duration-300 group';
+        projectCard.className = 'project-card glass-card p-6 animate-fade-in-up';
+        projectCard.style.animationDelay = `${index * 0.1}s`;
 
         const techStack = project.technologies.map(tech =>
-            `<span class="bg-cyber-card text-cyber-lime px-2 py-1 rounded text-xs">${tech}</span>`
+            `<span class="bg-emerald/10 text-emerald px-2 py-1 rounded text-xs border border-emerald/20">${tech}</span>`
         ).join(' ');
 
         projectCard.innerHTML = `
             <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center space-x-3">
-                    <i class="fas fa-project-diagram text-cyber-lime text-xl"></i>
+                    <i class="fas fa-code text-emerald text-xl"></i>
                     <h3 class="text-xl font-semibold text-white">${project.title}</h3>
                 </div>
-                <span class="text-xs bg-cyber-lime/10 text-cyber-lime px-2 py-1 rounded border border-cyber-lime/20">
+                <span class="text-xs bg-emerald/10 text-emerald px-2 py-1 rounded border border-emerald/20">
                     ${project.category}
                 </span>
             </div>
@@ -106,15 +114,15 @@ function loadProjectsSection() {
             <p class="text-gray-300 mb-4 leading-relaxed">${project.description}</p>
 
             <div class="mb-4">
-                <h4 class="text-sm font-medium text-cyber-lime mb-2">Technologies Used:</h4>
+                <h4 class="text-sm font-medium text-emerald mb-2">Technologies Used:</h4>
                 <div class="flex flex-wrap gap-1">
                     ${techStack}
                 </div>
             </div>
 
             <div class="flex items-center justify-between">
-                <span class="text-xs text-gray-400">${project.status}</span>
-                <button class="text-cyber-lime hover:text-white transition-colors">
+                <span class="text-xs text-emerald font-medium">${project.status}</span>
+                <button class="text-emerald hover:text-white transition-colors">
                     <i class="fas fa-external-link-alt"></i>
                 </button>
             </div>
@@ -125,48 +133,54 @@ function loadProjectsSection() {
 }
 
 function loadExperienceSection() {
-    const experienceTimeline = document.getElementById('experience-timeline');
-    experienceTimeline.innerHTML = '';
+    const experience = portfolioData.experience;
 
-    // Add timeline line
-    const timelineLine = document.createElement('div');
-    timelineLine.className = 'absolute left-8 top-0 bottom-0 w-0.5 bg-cyber-emerald/30';
-    experienceTimeline.appendChild(timelineLine);
+    // Update Network Security
+    document.getElementById('network-title').textContent = experience.networkSecurity.title;
+    document.getElementById('network-description').textContent = experience.networkSecurity.description;
 
-    portfolioData.experience.forEach((exp, index) => {
-        const experienceItem = document.createElement('div');
-        experienceItem.className = 'relative flex items-start mb-12';
-
-        const achievements = exp.achievements.map(achievement =>
-            `<li class="text-gray-300">${achievement}</li>`
-        ).join('');
-
-        experienceItem.innerHTML = `
-            <div class="flex-shrink-0 w-16 h-16 bg-cyber-emerald/10 border-2 border-cyber-emerald rounded-full flex items-center justify-center mr-6 relative z-10">
-                <i class="fas fa-briefcase text-cyber-lime"></i>
-            </div>
-
-            <div class="flex-grow bg-cyber-slate p-6 rounded-lg border border-cyber-zinc">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-white">${exp.title}</h3>
-                        <p class="text-cyber-lime font-medium">${exp.organization}</p>
-                    </div>
-                    <span class="text-gray-400 text-sm mt-2 md:mt-0">${exp.period}</span>
-                </div>
-
-                <p class="text-gray-300 mb-4">${exp.description}</p>
-
-                <div>
-                    <h4 class="text-cyber-lime font-medium mb-2">Key Achievements:</h4>
-                    <ul class="space-y-1 text-sm">
-                        ${achievements}
-                    </ul>
-                </div>
-            </div>
+    const networkSkills = document.getElementById('network-skills');
+    networkSkills.innerHTML = '';
+    experience.networkSecurity.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-emerald text-xs"></i>
+            <span>${skill}</span>
         `;
+        networkSkills.appendChild(skillItem);
+    });
 
-        experienceTimeline.appendChild(experienceItem);
+    // Update Software Development
+    document.getElementById('software-title').textContent = experience.softwareDev.title;
+    document.getElementById('software-description').textContent = experience.softwareDev.description;
+
+    const softwareSkills = document.getElementById('software-skills');
+    softwareSkills.innerHTML = '';
+    experience.softwareDev.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-blue text-xs"></i>
+            <span>${skill}</span>
+        `;
+        softwareSkills.appendChild(skillItem);
+    });
+
+    // Update Cyber Operations
+    document.getElementById('cyber-title').textContent = experience.cyberOperations.title;
+    document.getElementById('cyber-description').textContent = experience.cyberOperations.description;
+
+    const cyberSkills = document.getElementById('cyber-skills');
+    cyberSkills.innerHTML = '';
+    experience.cyberOperations.skills.forEach(skill => {
+        const skillItem = document.createElement('div');
+        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.innerHTML = `
+            <i class="fas fa-dot-circle text-emerald text-xs"></i>
+            <span>${skill}</span>
+        `;
+        cyberSkills.appendChild(skillItem);
     });
 }
 
@@ -206,20 +220,9 @@ function loadEducationSection() {
 function loadContactSection() {
     const contact = portfolioData.contact;
 
-    // Update status bar contact info
-    const statusBarEmail = document.querySelector('.glass-card .text-cyber-lime.font-mono:last-child');
-    const statusBarPhone = document.querySelector('.glass-card .text-gray-400.font-mono');
-    const statusBarLocation = document.querySelector('.glass-card .text-gray-400.font-mono');
-
-    if (statusBarEmail) statusBarEmail.textContent = contact.email;
-    if (statusBarPhone) {
-        // Find the phone number element
-        const phoneElements = document.querySelectorAll('.glass-card .text-gray-400.font-mono');
-        if (phoneElements.length >= 2) {
-            phoneElements[1].textContent = contact.phone;
-        }
-    }
-
+    document.getElementById('contact-location').textContent = contact.location;
+    document.getElementById('contact-phone').textContent = contact.phone;
+    document.getElementById('contact-email').textContent = contact.email;
     document.getElementById('github-link').href = contact.github;
     document.getElementById('linkedin-link').href = contact.linkedin;
 }
