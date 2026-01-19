@@ -136,9 +136,10 @@ const portfolioData = {
 
   contact: {
     email: "Nooraddin71@gmail.com",
+    phone: "+967774208430",
     linkedin: "https://linkedin.com/in/nooraddin-ismail",
     github: "https://github.com/nooraddinismail",
-    location: "Yemen"
+    location: "Sana'a-Sawan Street, Yemen"
   },
 
   stats: {

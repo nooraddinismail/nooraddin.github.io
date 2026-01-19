@@ -11,181 +11,301 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+                        'mono': ['Fira Code', 'ui-monospace', 'SFMono-Regular'],
+                    },
                     colors: {
-                        'cyber-dark': '#0a0a0f',
-                        'cyber-slate': '#1a1a2e',
-                        'cyber-card': '#16213e',
-                        'cyber-accent': '#533483',
-                        'cyber-purple': '#7c3aed',
-                        'cyber-blue': '#2563eb',
-                        'cyber-cyan': '#06b6d4',
-                        'cyber-pink': '#ec4899'
+                        'midnight': '#0a0a0c',
+                        'cyber-dark': '#111118',
+                        'cyber-card': '#1a1a24',
+                        'cyber-lime': '#bef264',
+                        'cyber-blue': '#3b82f6',
+                        'cyber-accent': '#60a5fa',
+                        'cyber-glow': '#93c5fd'
                     },
                     animation: {
                         'glow': 'glow 2s ease-in-out infinite alternate',
                         'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s ease-in-out infinite'
+                        'pulse-slow': 'pulse 4s ease-in-out infinite',
+                        'scan': 'scan 2s linear infinite'
                     },
                     keyframes: {
                         glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(124, 58, 237, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(124, 58, 237, 0.6)' }
+                            '0%': { boxShadow: '0 0 20px rgba(190, 242, 100, 0.3), 0 0 40px rgba(190, 242, 100, 0.1)' },
+                            '100%': { boxShadow: '0 0 30px rgba(190, 242, 100, 0.5), 0 0 60px rgba(190, 242, 100, 0.2)' }
                         },
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(-10px)' }
+                        },
+                        scan: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
                         }
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
                     }
                 }
             }
         }
     </script>
     <style>
-        .cyber-grid {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
+        .dashboard-grid {
             background:
-                radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 30% 20%, rgba(190, 242, 100, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(96, 165, 250, 0.04) 0%, transparent 50%);
             background-image:
-                linear-gradient(rgba(124, 58, 237, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
-            background-size: 60px 60px;
+                linear-gradient(rgba(190, 242, 100, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
         }
 
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(26, 26, 36, 0.8);
+            border: 1px solid rgba(190, 242, 100, 0.15);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(190, 242, 100, 0.3);
+            box-shadow:
+                0 12px 40px rgba(190, 242, 100, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .project-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow:
+                0 20px 60px rgba(190, 242, 100, 0.2),
+                0 0 40px rgba(190, 242, 100, 0.1);
         }
 
-        .photo-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.4);
+        .skill-tag {
+            background: rgba(190, 242, 100, 0.1);
+            border: 1px solid rgba(190, 242, 100, 0.2);
+        }
+
+        .skill-tag:hover {
+            background: rgba(190, 242, 100, 0.2);
+            border-color: rgba(190, 242, 100, 0.4);
         }
 
         .nav-link:hover {
-            color: #7c3aed;
+            color: #bef264;
+            text-shadow: 0 0 10px rgba(190, 242, 100, 0.5);
         }
 
-        .terminal-text::before {
-            content: 'nooraddin@cybersec:~$ ';
-            color: #7c3aed;
+        .terminal-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
 
-        .glass-effect {
-            backdrop-filter: blur(20px);
-            background: rgba(22, 33, 62, 0.8);
-            border: 1px solid rgba(124, 58, 237, 0.2);
+        .scan-line {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #bef264, transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(26, 26, 36, 0.9) 0%, rgba(16, 16, 24, 0.9) 100%);
+            border: 1px solid rgba(190, 242, 100, 0.2);
+        }
+
+        .profile-glow {
+            box-shadow:
+                0 0 30px rgba(190, 242, 100, 0.3),
+                0 0 60px rgba(190, 242, 100, 0.1),
+                inset 0 0 30px rgba(190, 242, 100, 0.1);
         }
     </style>
 </head>
-<body class="bg-cyber-dark text-gray-100 min-h-screen">
+<body class="bg-midnight text-gray-100 min-h-screen font-sans">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-cyber-slate/95 backdrop-blur-md border-b border-cyber-zinc z-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-cyber-card/95 backdrop-blur-xl border-b border-cyber-lime/20 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-shield-alt text-cyber-purple text-xl"></i>
-                    <span class="text-xl font-bold text-cyber-purple">Nooraddin</span>
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-cyber-lime/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-cyber-lime text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold text-cyber-lime font-mono">NOORADDIN</span>
                 </div>
 
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Home</a>
-                    <a href="#about" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">About</a>
-                    <a href="#photos" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Photos</a>
-                    <a href="#skills" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Skills</a>
-                    <a href="#projects" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Projects</a>
-                    <a href="#experience" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Experience</a>
-                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyber-purple transition-colors">Contact</a>
+                    <a href="#dashboard" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Dashboard</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Profile</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Experience</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-cyber-lime transition-all duration-300 text-sm font-medium">Contact</a>
                 </div>
 
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="text-gray-300 hover:text-cyber-emerald">
-                        <i class="fas fa-bars text-xl"></i>
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-cyber-lime transition-colors">
+                        <i class="fas fa-bars text-lg"></i>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cyber-slate border-t border-cyber-zinc">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Home</a>
-                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">About</a>
-                <a href="#photos" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Photos</a>
-                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Skills</a>
-                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Projects</a>
-                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Experience</a>
-                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-cyber-purple">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-cyber-card/95 backdrop-blur-xl border-t border-cyber-lime/20">
+            <div class="px-4 pt-2 pb-3 space-y-2">
+                <a href="#dashboard" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Dashboard</a>
+                <a href="#about" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Profile</a>
+                <a href="#skills" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Experience</a>
+                <a href="#contact" class="block px-3 py-2 text-gray-300 hover:text-cyber-lime transition-colors">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-16 min-h-screen flex items-center cyber-grid">
+    <section id="dashboard" class="pt-16 min-h-screen flex items-center dashboard-grid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <div class="inline-flex items-center space-x-2 bg-cyber-purple/10 border border-cyber-purple/20 rounded-full px-4 py-2">
-                            <i class="fas fa-terminal text-cyber-purple"></i>
-                            <span class="text-cyber-purple text-sm font-medium">Cybersecurity Student</span>
+            <!-- Status Bar -->
+            <div class="glass-card rounded-xl p-4 mb-8">
+                <div class="flex items-center justify-between text-sm">
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-cyber-lime rounded-full animate-pulse"></div>
+                            <span class="text-cyber-lime font-mono">SYSTEM ONLINE</span>
                         </div>
-
-                        <h1 class="text-4xl lg:text-6xl font-bold">
-                            <span class="text-white">Hello, I'm</span><br>
-                            <span class="text-cyber-purple" id="hero-name">Nooraddin Ismail</span>
-                        </h1>
-
-                        <p class="text-xl text-gray-300" id="hero-headline">Final Year Cybersecurity & Digital Forensics Student at Al-Nasser University</p>
-
-                        <p class="text-gray-400 max-w-lg" id="hero-description">
-                            A dedicated cybersecurity and digital forensics student with a passion for problem-solving and ethical hacking.
-                        </p>
+                        <span class="text-gray-400">|</span>
+                        <span class="text-gray-400 font-mono">Sana'a-Sawan Street, Yemen</span>
                     </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contact" class="bg-cyber-purple hover:bg-cyber-purple/80 text-white font-semibold px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
-                            <i class="fas fa-envelope"></i>
-                            <span>Contact Me</span>
-                        </a>
-                        <a href="My cv.pdf" target="_blank" class="border border-cyber-zinc hover:border-cyber-purple text-gray-300 hover:text-cyber-purple px-8 py-3 rounded-lg transition-colors inline-flex items-center justify-center space-x-2">
-                            <i class="fas fa-download"></i>
-                            <span>Download CV</span>
-                        </a>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-400 font-mono">+967 774 208 430</span>
+                        <span class="text-gray-400">|</span>
+                        <span class="text-cyber-lime font-mono">Nooraddin71@gmail.com</span>
                     </div>
+                </div>
+            </div>
 
-                    <div class="flex space-x-6 pt-8">
-                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-cyber-purple transition-colors">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <!-- Profile Section -->
+                <div class="lg:col-span-1">
+                    <div class="glass-card rounded-2xl p-8 text-center relative overflow-hidden">
+                        <div class="scan-line mb-6"></div>
+                        <div class="relative inline-block">
+                            <img src="nooraddin.png" alt="Nooraddin Ismail"
+                                 class="w-48 h-48 mx-auto rounded-2xl object-cover profile-glow">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-cyber-lime to-cyber-blue rounded-2xl opacity-20 animate-pulse"></div>
+                        </div>
+                        <div class="mt-6 space-y-2">
+                            <h1 class="text-2xl font-mono font-bold text-white">NOORADDIN ISMAIL</h1>
+                            <p class="text-cyber-lime font-mono text-sm">Final Year Cybersecurity Student</p>
+                            <p class="text-gray-400 text-xs">Al-Nasser University</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="relative">
-                    <div class="relative z-10">
-                        <img id="profile-image" src="https://via.placeholder.com/400x400/1e293b/10b981?text=NI" alt="Nooraddin Ismail"
-                             class="w-80 h-80 mx-auto rounded-full border-4 border-cyber-emerald/20 shadow-2xl animate-float">
-                        <div class="absolute inset-0 rounded-full bg-cyber-purple/10 animate-pulse"></div>
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Terminal Header -->
+                    <div class="glass-card rounded-xl p-6">
+                        <div class="flex items-center space-x-2 mb-4">
+                            <div class="flex space-x-1">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-cyber-lime rounded-full"></div>
+                            </div>
+                            <span class="text-gray-400 font-mono text-sm">nooraddin@cybersec:~$</span>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-cyber-lime font-mono text-sm">
+                                <span class="text-gray-400">$</span> whoami
+                            </p>
+                            <p class="text-white font-mono">nooraddin_ismail</p>
+
+                            <p class="text-cyber-lime font-mono text-sm">
+                                <span class="text-gray-400">$</span> cat /etc/bio.txt
+                            </p>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Cybersecurity & Digital Forensics Student passionate about ethical hacking,
+                                network security, and protecting digital assets. Currently pursuing final year
+                                at Al-Nasser University with hands-on experience in penetration testing and
+                                digital investigations.
+                            </p>
+                        </div>
                     </div>
 
-                    <!-- Decorative elements -->
-                    <div class="absolute top-10 left-10 w-20 h-20 border border-cyber-emerald/30 rounded-full animate-glow"></div>
-                    <div class="absolute bottom-10 right-10 w-16 h-16 border border-cyber-blue/30 rounded-full animate-glow" style="animation-delay: 1s;"></div>
+                    <!-- Action Buttons -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <a href="#contact" class="glass-card rounded-xl p-4 hover:bg-cyber-lime/10 transition-all duration-300 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-cyber-lime/20 rounded-lg flex items-center justify-center group-hover:bg-cyber-lime/30 transition-colors">
+                                    <i class="fas fa-envelope text-cyber-lime"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium text-sm">Contact</p>
+                                    <p class="text-gray-400 text-xs">Get in touch</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#projects" class="glass-card rounded-xl p-4 hover:bg-cyber-blue/10 transition-all duration-300 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-cyber-blue/20 rounded-lg flex items-center justify-center group-hover:bg-cyber-blue/30 transition-colors">
+                                    <i class="fas fa-code text-cyber-blue"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium text-sm">Projects</p>
+                                    <p class="text-gray-400 text-xs">View work</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="My cv.pdf" target="_blank" class="glass-card rounded-xl p-4 hover:bg-cyber-accent/10 transition-all duration-300 group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-10 bg-cyber-accent/20 rounded-lg flex items-center justify-center group-hover:bg-cyber-accent/30 transition-colors">
+                                    <i class="fas fa-download text-cyber-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-medium text-sm">Resume</p>
+                                    <p class="text-gray-400 text-xs">Download CV</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-cyber-lime/20 transition-all duration-300">
+                            <i class="fab fa-github text-gray-400 hover:text-cyber-lime transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-cyber-blue/20 transition-all duration-300">
+                            <i class="fab fa-linkedin text-gray-400 hover:text-cyber-blue transition-colors"></i>
+                        </a>
+                        <a href="#" class="glass-card w-12 h-12 rounded-xl flex items-center justify-center hover:bg-cyber-accent/20 transition-all duration-300">
+                            <i class="fab fa-twitter text-gray-400 hover:text-cyber-accent transition-colors"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -225,84 +345,6 @@
                     <div id="highlights-list" class="space-y-3">
                         <!-- Highlights will be populated by JavaScript -->
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <section id="photos" class="py-20 bg-cyber-slate">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">My Gallery</h2>
-                <div class="w-24 h-1 bg-cyber-purple mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Photo 1 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/533483/ffffff?text=Photo+1" alt="Cybersecurity Project"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Network Security Lab</h3>
-                    <p class="text-gray-300 text-sm">Setting up secure network configurations and testing penetration scenarios.</p>
-                </div>
-
-                <!-- Photo 2 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/7c3aed/ffffff?text=Photo+2" alt="Digital Forensics"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Digital Forensics Analysis</h3>
-                    <p class="text-gray-300 text-sm">Analyzing cyber attack patterns and collecting digital evidence.</p>
-                </div>
-
-                <!-- Photo 3 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/06b6d4/ffffff?text=Photo+3" alt="Cryptography Work"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Cryptography Research</h3>
-                    <p class="text-gray-300 text-sm">Developing secure encryption algorithms and cryptographic solutions.</p>
-                </div>
-
-                <!-- Photo 4 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/ec4899/ffffff?text=Photo+4" alt="Ethical Hacking"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Ethical Hacking Session</h3>
-                    <p class="text-gray-300 text-sm">Conducting authorized penetration testing and vulnerability assessments.</p>
-                </div>
-
-                <!-- Photo 5 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/2563eb/ffffff?text=Photo+5" alt="University Lab"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">University Cybersecurity Lab</h3>
-                    <p class="text-gray-300 text-sm">Working in advanced security labs at Al-Nasser University.</p>
-                </div>
-
-                <!-- Photo 6 -->
-                <div class="photo-card glass-effect p-6 rounded-lg transition-all duration-300 group">
-                    <div class="relative overflow-hidden rounded-lg mb-4">
-                        <img src="https://via.placeholder.com/400x300/7c3aed/ec4899?text=Photo+6" alt="Team Collaboration"
-                             class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-cyber-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Team Collaboration</h3>
-                    <p class="text-gray-300 text-sm">Working with fellow cybersecurity students on complex projects.</p>
                 </div>
             </div>
         </div>
