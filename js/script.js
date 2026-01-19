@@ -1,4 +1,4 @@
-// Cybersecurity Portfolio Script
+// Modern Cybersecurity Portfolio Script
 document.addEventListener('DOMContentLoaded', function() {
     // Load data and populate content
     loadHeroSection();
@@ -40,8 +40,8 @@ function loadAboutSection() {
         const highlightDiv = document.createElement('div');
         highlightDiv.className = 'flex items-start space-x-3';
         highlightDiv.innerHTML = `
-            <i class="fas fa-check-circle text-lime mt-1"></i>
-            <span class="text-gray-300">${highlight}</span>
+            <i class="fas fa-check-circle text-accent mt-1"></i>
+            <span class="text-text-secondary">${highlight}</span>
         `;
         highlightsList.appendChild(highlightDiv);
     });
@@ -58,9 +58,9 @@ function loadExperienceSection() {
     networkSkills.innerHTML = '';
     experience.networkSecurity.skills.forEach(skill => {
         const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.className = 'inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm';
         skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-lime text-xs"></i>
+            <i class="fas fa-dot-circle text-xs"></i>
             <span>${skill}</span>
         `;
         networkSkills.appendChild(skillItem);
@@ -74,9 +74,9 @@ function loadExperienceSection() {
     softwareSkills.innerHTML = '';
     experience.softwareDev.skills.forEach(skill => {
         const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.className = 'inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-secondary/10 border border-accent-secondary/20 text-accent-secondary text-sm';
         skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-blue text-xs"></i>
+            <i class="fas fa-dot-circle text-xs"></i>
             <span>${skill}</span>
         `;
         softwareSkills.appendChild(skillItem);
@@ -90,9 +90,9 @@ function loadExperienceSection() {
     cyberSkills.innerHTML = '';
     experience.cyberOperations.skills.forEach(skill => {
         const skillItem = document.createElement('div');
-        skillItem.className = 'text-gray-300 text-sm flex items-center space-x-2';
+        skillItem.className = 'inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm';
         skillItem.innerHTML = `
-            <i class="fas fa-dot-circle text-lime text-xs"></i>
+            <i class="fas fa-dot-circle text-xs"></i>
             <span>${skill}</span>
         `;
         cyberSkills.appendChild(skillItem);
@@ -102,6 +102,10 @@ function loadExperienceSection() {
 function loadSkillsSection() {
     const skills = portfolioData.skills;
 
+    // Programming Skills
+    document.getElementById('programming-title').textContent = skills.programming.title;
+    const programmingSkills = document.getElementById('programming-skills');
+    programmingSkills.innerHTML = '';
     // Programming Skills
     document.getElementById('programming-title').textContent = skills.programming.title;
     const programmingSkills = document.getElementById('programming-skills');
@@ -146,8 +150,8 @@ function loadProjectsSection() {
         projectCard.style.animationDelay = `${index * 0.1}s`;
 
         const techStack = project.technologies.map(tech =>
-            `<span class="bg-lime/10 text-lime px-2 py-1 rounded text-xs border border-lime/20">${tech}</span>`
-        ).join(' ');
+            `<span class="inline-block px-2 py-1 rounded text-xs bg-accent/10 text-accent border border-accent/20 mr-1 mb-1">${tech}</span>`
+        ).join('');
 
         projectCard.innerHTML = `
             <div class="flex items-center justify-between mb-4">
@@ -170,7 +174,7 @@ function loadProjectsSection() {
             </div>
 
             <div class="flex items-center justify-between">
-                <span class="text-xs text-lime font-medium">${project.status}</span>
+                <span class="inline-block px-2 py-1 rounded-full text-xs bg-accent/10 text-accent border border-accent/20">${project.status}</span>
                 <button class="text-lime hover:text-white transition-colors">
                     <i class="fas fa-external-link-alt"></i>
                 </button>
